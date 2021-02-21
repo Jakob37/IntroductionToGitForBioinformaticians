@@ -1,0 +1,11 @@
+*.aux
+*.out
+**/build
+*.gz
+*.log
+*.toc
+*#
+
+**PlantLinkPart.pdf
+**GitPart1.pdf
+**GitPart2.pdf

@@ -1,0 +1,130 @@
+\documentclass[12pt]{report}
+\setlength{\headheight}{15pt}
+
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\graphicspath{{images/}}
+%\usepackage[a4paper, width=150mm,top=25mm,bottom=25mm]{geometry}
+\usepackage{svg}
+\usepackage{textcomp}
+\usepackage[hidelinks]{hyperref}  % \href{}{}
+\usepackage{calc}
+\usepackage{enumitem}
+\usepackage{subfiles}
+\usepackage[margin=1.0in]{geometry}
+
+% Boxes
+\usepackage{tcolorbox}
+
+% Multiple columns
+\usepackage{multicol}
+
+\newtcolorbox{codebox}{
+	colback=gray!5!white,
+	colframe=gray!30!white,
+	boxsep=1pt,
+	top=0pt,
+	bottom=0pt,
+	boxrule=0.1pt
+}
+
+\newtcolorbox{bluebox}{
+	colback=blue!5!white,
+	colframe=blue!30!black
+}
+
+\newtcolorbox{greenbox}{
+	colback=green!5!white,
+	colframe=green!30!black,
+	title=FILENAME
+}
+
+\newtcolorbox{redbox}{
+	colback=red!5!white,
+	colframe=red!50!black,
+	title=Note
+}
+
+\usepackage{caption}
+%\textsc{•}\usepackage{subcaption}
+
+\usepackage{listings}
+\lstset{basicstyle=\ttfamily,
+  showstringspaces=false,
+  commentstyle=\color{red},
+  keywordstyle=\color{blue},
+  language=bash,
+  tabsize=4
+}
+
+% Additional keywords for syntax highlighting
+\lstset{emph={
+    ls, hello, file, touch, tar, gzip, gunzip, grep, chmod, ssh, rm, mv, cp, wget, nano, diff, man, mkdir, rmdir, head, tail, wc, cut, sort, uniq, ln,
+    git, add, commit, reset, push, pull, init, log, diff, status, checkout,
+    },emphstyle={\color{blue}}
+}
+
+\usepackage{xcolor}
+\hypersetup{
+    colorlinks,
+    linkcolor={red!50!black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black}
+}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead{}
+\fancyhead[L]{\leftmark}
+\fancyfoot{}
+%\fancyfoot[LO]{\thepage}
+\fancyfoot[LE,RO]{\thepage}           % page number in "outer" position of footer line
+\fancyfoot[RE,LO]{\small{\copyright{ Jakob Willforss 2018}}} % other info in "inner" position of footer line
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\usepackage{color}
+\definecolor{darkgreen}{rgb}{0,0.8,0}
+
+% "Variables"
+\newcommand\imgwidth{0.8\textwidth}
+
+\newcommand{\bi}[1]{\textit{\textbf{#1}}}
+
+\begin{document}
+
+\title{Introduction to Git for Bioinformaticians}
+%\date{\today}
+\author{Jakob Willforss}
+\date{\today\\v1.3.1}
+\maketitle
+
+\renewcommand{\bibname}{References}
+
+\setcounter{tocdepth}{2}
+\tableofcontents
+
+\subfile{../chapters/1_introduction_to_version_control}
+
+\subfile{../chapters/2_understanding_a_repository}
+
+\subfile{../chapters/3_the_history}
+
+\subfile{../chapters/4_branches}
+
+\subfile{../chapters/5_remote_repositories}
+
+\subfile{../chapters/6_git_for_bioinformaticians}
+
+\end{document}
+
+% TODOs
+% Put some more energy into the diff-part in chapter 3 (present in exercises?)
+% Think more about how to handle the history-tracing in branching chapter
+	% Is git reset --hard a good idea or not?
+% Should I mention git checkout -b ?
+% More emphasis on Git as compared to other VCM systems
+% Comment on .md format?
+% Check ordering on remote-merge colored-blobs commits (check ordering of merge commits in general)
+
+
