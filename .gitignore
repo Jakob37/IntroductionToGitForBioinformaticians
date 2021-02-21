@@ -4,6 +4,7 @@
 *.gz
 *.log
 *.toc
+main/*pdf
 *#
 
 **PlantLinkPart.pdf
